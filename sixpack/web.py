@@ -10,8 +10,9 @@ from config import CONFIG as cfg
 import db
 from models import Experiment
 import utils
+import os
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder=cfg.get('template_folder', 'templates'))
 csrf = SeaSurf(app)
 
 js = Bundle('js/vendor/jquery.js', 'js/vendor/d3.js',
@@ -186,6 +187,11 @@ def simple_markdown(experiment):
 
 
 app.secret_key = cfg.get('secret_key')
+
+# IN CASE YOUR ON SEPERATE DOMAINS OR IF YOU USE A DIFFERENT URL FORMAT THAN WHAT IS STANDARD
+app.sixpack_ui_domain = cfg.get("sixpack_ui_domain", '')
+app.sixpack_domain = cfg.get("sixpack_domain", '/')
+
 app.jinja_env.filters['number_to_percent'] = utils.number_to_percent
 app.jinja_env.filters['number_format'] = utils.number_format
 toolbar = DebugToolbarExtension(app)

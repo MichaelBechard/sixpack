@@ -70,7 +70,7 @@ $(function () {
           e.preventDefault();
           return;
         }
-        url = '/experiments/' + experiment_name;
+        url = SIXPACK_BASE_DOMAIN + '/experiments/' + experiment_name;
         if (this_kpi != 'default') {
           url += '?kpi=' + this_kpi;
         }
