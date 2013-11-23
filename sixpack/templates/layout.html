@@ -10,17 +10,17 @@
 
     <!-- Le styles -->
     {% assets "css_all" %}
-      <link href="{{ config.sixpack_ui_domain }}{{ ASSET_URL }}" rel="stylesheet">
+      <link href="{{ sixpack_ui_domain }}{{ ASSET_URL }}" rel="stylesheet">
     {% endassets %}
 
-    <link rel="icon" type="image/png" href="{{ config.sixpack_ui_domain }}/static/img/favicon.png">
+    <link rel="icon" type="image/png" href="{{ sixpack_ui_domain }}/static/img/favicon.png">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <script type="text/javascript">
-        var SIXPACK_BASE_DOMAIN = "{{ config.sixpack_domain }}";
+        var SIXPACK_BASE_DOMAIN = "{{ sixpack_domain }}";
     </script>
   </head>
 
@@ -30,8 +30,8 @@
         <div class="container">
           <a class="brand" href="/"></a>
           <ul class="nav nav-pills pull-right" id="navigation">
-            <li id="js-active-experiments"><a href="{{ config.sixpack_ui_domain }}/">Active</a></li>
-            <li id="js-non-active-experiments"><a href="{{ config.sixpack_ui_domain }}/archived">Archived</a></li>
+            <li id="js-active-experiments"><a href="{{ sixpack_ui_domain }}/">Active</a></li>
+            <li id="js-non-active-experiments"><a href="{{ sixpack_ui_domain }}/archived">Archived</a></li>
           </ul>
         </div>
       </div>
@@ -45,7 +45,7 @@
     <div id="tooltip"></div>
 
   {% assets "js_all" %}
-      <script type="text/javascript" src="{{ config.sixpack_ui_domain }}{{ ASSET_URL }}"></script>
+      <script type="text/javascript" src="{{ sixpack_ui_domain }}{{ ASSET_URL }}"></script>
   {% endassets %}
 
   </body>
