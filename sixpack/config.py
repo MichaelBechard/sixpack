@@ -32,5 +32,3 @@ else:
     }
     if os.environ.get("SIXPACK_CONFIG_UI_DOMAIN", None):
         CONFIG['sixpack_ui_domain'] = os.environ.get("SIXPACK_CONFIG_UI_DOMAIN")
-    if os.environ.get("SIXPACK_CONFIG_DOMAIN", None):
-        CONFIG['sixpack_domain'] = os.environ.get("SIXPACK_CONFIG_DOMAIN")

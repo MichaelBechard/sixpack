@@ -191,7 +191,6 @@ app.secret_key = cfg.get('secret_key')
 
 # IN CASE YOUR ON SEPARATE DOMAINS OR IF YOU USE A DIFFERENT URL FORMAT THAN WHAT IS STANDARD
 app.jinja_env.globals['sixpack_ui_domain'] = cfg.get("sixpack_ui_domain", '')
-app.jinja_env.globals['sixpack_domain'] = cfg.get("sixpack_domain", '/')
 
 app.jinja_env.filters['number_to_percent'] = utils.number_to_percent
 app.jinja_env.filters['number_format'] = utils.number_format
