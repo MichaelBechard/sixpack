@@ -96,7 +96,7 @@ def set_winner(experiment_name):
     experiment = find_or_404(experiment_name)
     experiment.set_winner(request.form['alternative_name'])
 
-    return redirect(url_for('details', experiment_name=experiment.name))
+    return redirect(cfg.get("sixpack_ui_domain", '') + url_for('details', experiment_name=experiment.name))
 
 
 # Reset experiment
@@ -105,7 +105,7 @@ def reset_experiment(experiment_name):
     experiment = find_or_404(experiment_name)
     experiment.reset()
 
-    return redirect(url_for('details', experiment_name=experiment.name))
+    return redirect(cfg.get("sixpack_ui_domain", '') + url_for('details', experiment_name=experiment.name))
 
 
 # Reset experiment winner
@@ -114,7 +114,7 @@ def reset_winner(experiment_name):
     experiment = find_or_404(experiment_name)
     experiment.reset_winner()
 
-    return redirect(url_for('details', experiment_name=experiment.name))
+    return redirect(cfg.get("sixpack_ui_domain", '') + url_for('details', experiment_name=experiment.name))
 
 
 # Delete experiment
@@ -123,7 +123,7 @@ def delete_experiment(experiment_name):
     experiment = find_or_404(experiment_name)
     experiment.delete()
 
-    return redirect(url_for('hello'))
+    return redirect(cfg.get("sixpack_ui_domain", '') +  url_for('hello'))
 
 
 # Archive experiment
@@ -135,7 +135,7 @@ def toggle_experiment_archive(experiment_name):
     else:
         experiment.archive()
 
-    return redirect(url_for('details', experiment_name=experiment.name))
+    return redirect(cfg.get("sixpack_ui_domain", '') + url_for('details', experiment_name=experiment.name))
 
 
 @app.route("/experiments/<experiment_name>/description", methods=['POST'])
@@ -144,7 +144,7 @@ def update_experiment_description(experiment_name):
 
     experiment.update_description(request.form['description'])
 
-    return redirect(url_for('details', experiment_name=experiment.name))
+    return redirect(cfg.get("sixpack_ui_domain", '') + url_for('details', experiment_name=experiment.name))
 
 
 @app.route('/favicon.ico')
