@@ -28,6 +28,7 @@ css = Bundle('css/vendor/bootstrap.css',
              output="{0}/sixpack.css".format(cfg.get('asset_path', 'gen')))
 
 assets = Environment(app)
+assets.debug = True
 assets.register('js_all', js)
 assets.register('css_all', css)
 
