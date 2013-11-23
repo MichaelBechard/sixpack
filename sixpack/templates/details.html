@@ -18,7 +18,7 @@
 
     <div class="controls">
 
-      <form action="{{ sixpack_ui_domain }}{{ url_for('toggle_experiment_archive', experiment_name=experiment.name) }}/" method="post">
+      <form action="{{ sixpack_ui_domain }}{{ url_for('toggle_experiment_archive', experiment_name=experiment.name) }}" method="post">
         <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
         <button class="btn btn-small btn-inverse"><i class="icon-white icon-ok-circle"></i> <% if (experiment.is_archived) { %>Un-<% } %>Archive</button>
       </form>
@@ -42,7 +42,7 @@
         <button class="btn btn-small btn-danger" data-toggle="modal" data-target="#confirm-delete-modal"><i class="icon-white icon-trash"></i> Delete</button>
       </form>
 
-      <form method="post" action="{{ sixpack_ui_domain }}{{ url_for('export', experiment_name=experiment.name) }}/">
+      <form method="post" action="{{ sixpack_ui_domain }}{{ url_for('export', experiment_name=experiment.name) }}">
         <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
         <button class="btn btn-small btn-info"><i class="icon-white icon-share-alt"></i> Export</button>
       </form>
@@ -138,7 +138,7 @@
 </div>
 
 <div class="modal hide fade" id="desc-modal">
-  <form action="{{ sixpack_ui_domain }}{{ url_for('update_experiment_description', experiment_name=experiment.name) }}/" method="post">
+  <form action="{{ sixpack_ui_domain }}{{ url_for('update_experiment_description', experiment_name=experiment.name) }}" method="post">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
       <h3>Update Description</h3>
@@ -154,7 +154,7 @@
 </div>
 
 <div class="modal hide fade" id="confirm-reset-modal">
-  <form action="{{ sixpack_ui_domain }}{{ url_for('reset_experiment', experiment_name=experiment.name) }}/" method="post">
+  <form action="{{ sixpack_ui_domain }}{{ url_for('reset_experiment', experiment_name=experiment.name) }}" method="post">
     <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
