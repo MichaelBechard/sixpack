@@ -38,7 +38,7 @@ $(function () {
       // and active states don't work, so we need to manually
       // activate them. It uses its own .on() methods for events,
       // so no clean jQuery syntax, unfortunately.
-      var copyBtn = new ZeroClipboard($('.copy-querystring'), { moviePath: '/static/flash/ZeroClipboard.swf' });
+      var copyBtn = new ZeroClipboard($('.copy-querystring'), { moviePath: SIXPACK_BASE_DOMAIN + '/static/flash/ZeroClipboard.swf' });
 
       copyBtn.on('mousedown', function () {
         $(this).addClass('active');
