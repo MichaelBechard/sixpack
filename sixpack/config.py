@@ -28,4 +28,9 @@ else:
         'ignored_ip_addresses':os.environ.get('SIXPACK_CONFIG_IGNORE_IPS', "").split(";"),
         'asset_path':os.environ.get('SIXPACK_CONFIG_ASSET_PATH', "gen"),
         'secret_key':os.environ.get('SIXPACK_CONFIG_SECRET', 'temp'),
+        'template_folder': os.environ.get("SIXPACK_CONFIG_TEMPLATE_FOLDER", 'templates'),
     }
+    if os.environ.get("SIXPACK_CONFIG_UI_DOMAIN", None):
+        CONFIG['sixpack_ui_domain'] = os.environ.get("SIXPACK_CONFIG_UI_DOMAIN")
+    if os.environ.get("SIXPACK_CONFIG_DOMAIN", None):
+        CONFIG['sixpack_domain'] = os.environ.get("SIXPACK_CONFIG_DOMAIN")

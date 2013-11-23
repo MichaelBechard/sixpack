@@ -10,8 +10,9 @@ from config import CONFIG as cfg
 import db
 from models import Experiment
 import utils
+import os
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder=cfg.get('template_folder', 'templates'))
 csrf = SeaSurf(app)
 
 js = Bundle('js/vendor/jquery.js', 'js/vendor/d3.js',
@@ -27,6 +28,7 @@ css = Bundle('css/vendor/bootstrap.css',
              output="{0}/sixpack.css".format(cfg.get('asset_path', 'gen')))
 
 assets = Environment(app)
+assets.debug = True
 assets.register('js_all', js)
 assets.register('css_all', css)
 
@@ -186,6 +188,11 @@ def simple_markdown(experiment):
 
 
 app.secret_key = cfg.get('secret_key')
+
+# IN CASE YOUR ON SEPARATE DOMAINS OR IF YOU USE A DIFFERENT URL FORMAT THAN WHAT IS STANDARD
+app.jinja_env.globals['sixpack_ui_domain'] = cfg.get("sixpack_ui_domain", '')
+app.jinja_env.globals['sixpack_domain'] = cfg.get("sixpack_domain", '/')
+
 app.jinja_env.filters['number_to_percent'] = utils.number_to_percent
 app.jinja_env.filters['number_format'] = utils.number_format
 toolbar = DebugToolbarExtension(app)
